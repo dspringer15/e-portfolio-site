@@ -5,6 +5,11 @@ body {
   font-family: 'Share Tech Mono', monospace;
 }
 
+body_style {
+    padding-left: 16px;
+    padding-right: 16px;
+}
+
 .topnav {
   overflow: hidden;
   --background-color: #333;
