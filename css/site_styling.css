@@ -5,22 +5,32 @@ body {
   font-family: 'Share Tech Mono', monospace;
 }
 
-body_style {
+.body_style {
     padding-left: 16px;
     padding-right: 16px;
 }
 
 .topnav {
-  overflow: hidden;
-  --background-color: #333;
+  overflow: auto;
+  padding-top: 40px;
+  --position: fixed;
 }
 
 .menubackground {
   width: auto;
   height: 350px;
   border: 7px double #b8a01a; 
-  --padding: 35px;
-  background-image: url("black_tech.jpg");
+  --position: fixed;
+  padding: 35px;
+  overflow: auto;
+  background-image: url("../images/black_tech.jpg");
+}
+
+.logo {
+    padding-left: 55px;
+    padding-top: 55px;
+    overflow: auto;
+    --position: fixed;
 }
 
 .topnav a {
