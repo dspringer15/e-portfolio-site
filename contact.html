@@ -1,26 +1,71 @@
 <!DOCTYPE html>
 <html>
-<head>
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" type="text/css" href="css/site_styling.css">
-<link href="https://fonts.googleapis.com/css?family=Share+Tech+Mono&display=swap" rel="stylesheet">
-</head>
-<body>
-<div class="menubackground">
-    <div class="logo">
-        <img style= "border: 3px solid #b8a01a" src="images/logo2.png" alt="Logo" width="450" height="235">
-    </div>
-<div class="topnav">
-  <a href="contact.html">Contact</a>
-  <a href="resume.html">Resume</a>
-  <a href="about.html">About</a>
-  <a href="index.html">Home</a>
-</div>
-</div>
 
-<div class="body_style">
-    <h1>Contact Page</h1>
-        <p>Placeholder</p>
-</div>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Contact Me!</title>
+    <link rel="stylesheet" type="text/css" href="css/site_styling.css">
+    <link href="https://fonts.googleapis.com/css?family=Share+Tech+Mono&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+
+<body>
+    <div class="menubackground">
+        <!-- <div class="logo">
+        <img style= "border: 3px solid #b8a01a" src="images/logo2.png" alt="Logo" width="450" height="235">
+    </div> -->
+        <div class="topnav">
+            <a href="https://www.linkedin.com/in/desmondspringer1/"><i class="fa fa-linkedin-square" style="font-size:20px;"></i></a>
+            <a href="contact.html">Contact</a>
+            <a href="resume.html">Resume</a>
+            <a href="about.html">About</a>
+            <a href="index.html">Home</a>
+        </div>
+    </div>
+
+    <div class="body_style">
+        <h1>Contact Page</h1>
+
+        </br>
+
+        <p>I would love to hear back from you with any opportunites, feedback or further questions that you may have.
+            Please feel free to complete the form and I will be with you as soon as possible.
+        </p>
+
+        </br>
+
+        <div class="contact_form">
+            <form action="php/site_actions.php" method="post">
+
+                <label for="inquiry_type">Inquiry Type:</label>
+                <select id="inquiry" name="inquiry">
+                    <option value="questions">Questions</option>
+                    <option value="feedback">Feedback</option>
+                    <option value="opportunites">Opportunites</option>
+                </select>
+
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" placeholder="Enter your e-mail..">
+                
+                <label for="fname">First Name:</label>
+                <input type="text" id="fname" name="fname" placeholder="Enter your first name..">
+
+                <label for="lname">Last Name:</label>
+                <input type="text" id="lname" name="lname" placeholder="Enter your last name..">
+
+                <label for="subject">Subject:</label>
+                <textarea id="subject" name="subject" placeholder="What would you like to say?" style="height:200px"></textarea>
+
+                <label for="fileInput">Add File:</label>
+                <input type="file" name="attachedfile" maxlength=50 allow="text/*"  />
+                    
+                <center>
+                    </br><input type="submit" value="Submit">
+                </center>
+
+            </form>
+        </div>
+    </div>
 </body>
+
 </html>
