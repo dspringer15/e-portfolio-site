@@ -10,25 +10,24 @@
 </head>
 
 <body>
-    <div class="menubackground">
-        <!-- <div class="logo">
-        <img style= "border: 3px solid #b8a01a" src="images/logo2.png" alt="Logo" width="450" height="235">
-    </div> -->
-        <div class="topnav">
-            <a href="https://www.linkedin.com/in/desmondspringer1/"><i class="fa fa-linkedin-square" style="font-size:20px;"></i></a>
-            <a href="contact.html">Contact</a>
-            <a href="resume.html">Resume</a>
-            <a href="about.html">About</a>
-            <a href="index.html">Home</a>
-        </div>
+  
+    <div class="topnav" id="myTopnav">
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="resume.html">Resume</a>
+        <a href="contact.html">Contact</a>
+        <a href="https://www.linkedin.com/in/desmondspringer1/">LinkedIn</a>
+        <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+            <i class="fa fa-bars"></i>
+        </a>
     </div>
 
     <div class="body_style">
-        <h1>Resume Page</h1>
+        <h1>What I've Done</h1>
 
         </br>
     
-        <h2>Let me share my past and present experiences with you.</h2>
+        <h2>Let me share my past and present experiences with you...</h2>
 
         </br>
 
@@ -41,5 +40,16 @@
         </center>
     </div>
 </body>
+
+    <script>
+        function myFunction() {
+        var x = document.getElementById("myTopnav");
+        if (x.className === "topnav") {
+            x.className += " responsive";
+        } else {
+            x.className = "topnav";
+        }
+        }
+    </script>
 
 </html>

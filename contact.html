@@ -1,3 +1,23 @@
+<?php 
+if(isset($_POST['submit'])){
+    $to = "dspringer08@yahoo.com"; // this is your Email address
+    $from = $_POST['email']; // this is the sender's Email address
+    $fullname = $_POST['fullname'];
+    $number = $_POST['number'];
+    $subject = "You have a(n) " + $_POST['inquiry'] + " from " + $_POST['fullname'];
+    $subject2 = "Copy of your form submission";
+    $message = $fullname " wrote the following:" . "\n\n" . $_POST['message'];
+    $message2 = "Here is a copy of your message.\n\n" . $_POST['message'];
+
+    $headers = "From:" . $from;
+    $headers2 = "From:" . $to;
+    mail($to,$subject,$message,$headers);
+    mail($from,$subject2,$message2,$headers2); // sends a copy of the message to the sender
+    echo "Mail Sent. Thank you " . $first_name . ", we will contact you shortly.";
+    // You can also use header('Location: thank_you.php'); to redirect to another page.
+    }
+?>
+
 <!DOCTYPE html>
 <html>
 
@@ -10,21 +30,19 @@
 </head>
 
 <body>
-    <div class="menubackground">
-        <!-- <div class="logo">
-        <img style= "border: 3px solid #b8a01a" src="images/logo2.png" alt="Logo" width="450" height="235">
-    </div> -->
-        <div class="topnav">
-            <a href="https://www.linkedin.com/in/desmondspringer1/"><i class="fa fa-linkedin-square" style="font-size:20px;"></i></a>
-            <a href="contact.html">Contact</a>
-            <a href="resume.html">Resume</a>
-            <a href="about.html">About</a>
-            <a href="index.html">Home</a>
-        </div>
+    <div class="topnav" id="myTopnav">
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="resume.html">Resume</a>
+        <a href="contact.html">Contact</a>
+        <a href="https://www.linkedin.com/in/desmondspringer1/">LinkedIn</a>
+        <a href="javascript:void(0);" class="icon" onclick="windowSize()">
+            <i class="fa fa-bars"></i>
+        </a>
     </div>
 
     <div class="body_style">
-        <h1>Contact Page</h1>
+        <h1>Let's Keep in Touch</h1>
 
         </br>
 
@@ -35,37 +53,72 @@
         </br>
 
         <div class="contact_form">
-            <form action="php/site_actions.php" method="post">
+            <form name="contactForm" action="php/site_actions.php" onsubmit="return validateForm()" method="post">
 
-                <label for="inquiry_type">Inquiry Type:</label>
-                <select id="inquiry" name="inquiry">
+                <label for="inquiry_type">Inquiry Type: <span class = "red">*</span></label>
+                <select id="inquiry_type" name="inquiry">
+                    <option style="display:none"></option>
                     <option value="questions">Questions</option>
                     <option value="feedback">Feedback</option>
                     <option value="opportunites">Opportunites</option>
                 </select>
 
-                <label for="email">Email:</label>
+                <label for="email">Email: <span class = "red">*</span></label>
                 <input type="email" id="email" name="email" placeholder="Enter your e-mail..">
                 
-                <label for="fname">First Name:</label>
-                <input type="text" id="fname" name="fname" placeholder="Enter your first name..">
+                <label for="fullname">Name: <span class = "red">*</span></label>
+                <input type="text" id="fullname" name="fullname" placeholder="Enter your first and last name..">
 
-                <label for="lname">Last Name:</label>
-                <input type="text" id="lname" name="lname" placeholder="Enter your last name..">
+                <label for="number">Number:</label>
+                <input type="text" id="number" name="number" placeholder="Enter your area code and number in 9999999999 format..">
 
-                <label for="subject">Subject:</label>
-                <textarea id="subject" name="subject" placeholder="What would you like to say?" style="height:200px"></textarea>
+                <label for="message">Message: <span class = "red">*</span></label>
+                <textarea id="message" name="message" placeholder="What would you like to say?" style="height:200px"></textarea>
 
                 <label for="fileInput">Add File:</label>
                 <input type="file" name="attachedfile" maxlength=50 allow="text/*"  />
                     
                 <center>
-                    </br><input type="submit" value="Submit">
+                    <p>Fields with a "<span class = "red">*</span>" denotes that they are required fields.</p>
+                    </br><input type="submit" value="Submit" onclick="emailSent()">
                 </center>
 
             </form>
         </div>
     </div>
+
+    <script>
+        function validateForm() {
+            var email = document.forms["contactForm"]["email"].value;
+            var name = document.forms["contactForm"]["fullname"].value;
+            var message = document.forms["contactForm"]["message"].value;
+
+            if (email == "") {
+                alert("You must provide a valid email.");
+                return false;
+            } else if (name == "") {
+                alert("You must enter your name.");
+                return false;
+            } else if (message == "") {
+                alert("You must enter a message to send.");
+                return false;
+            } else {
+                // function emailSent() {
+                    alert("Thanks for your message! Your email has been sent to Desmond.");
+                // }
+            }
+        }
+
+        function windowSize() {
+          var x = document.getElementById("myTopnav");
+          if (x.className === "topnav") {
+            x.className += " responsive";
+          } else {
+            x.className = "topnav";
+          }
+        }
+
+    </script>
 </body>
 
 </html>

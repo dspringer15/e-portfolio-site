@@ -10,22 +10,25 @@
 </head>
 
 <body>
-  <div class="menubackground">
-    <div class="topnav">
-      <a href="https://www.linkedin.com/in/desmondspringer1/"><i class="fa fa-linkedin-square" style="font-size:20px;"></i></a>
-      <a href="contact.html">Contact</a>
-      <a href="resume.html">Resume</a>
-      <a href="about.html">About</a>
+  <!-- <div class="menubackground"> -->
+    <div class="topnav" id="myTopnav">
       <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="resume.html">Resume</a>
+      <a href="contact.html">Contact</a>
+      <a href="https://www.linkedin.com/in/desmondspringer1/">LinkedIn</a>
+      <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+        <i class="fa fa-bars"></i>
+      </a>
     </div>
-  </div>
+  <!-- </div> -->
 
   <div class="body_style">
-    <h1>Welcome to my world!</h1>
-    
-    </br>
-    
     <center>
+      <h1>Welcome to my world!</h1>
+      
+      </br>
+  
       <div id="animated-example" class = "animated bounce">
         <img style="border: 3px inset #b8a01a" src="images/selfie.jpg" alt="Dez b&w" width="200" height="300">
       </div>
@@ -36,12 +39,22 @@
     
     <div class="message_styling">
       <p>I am glad you've taken the time to check out my evolving E-Portfolio. I'm a growing I.T. professional with a
-      background in development, operations and analysis. I'm am looking to continue to attain new skills and strengthen
-      my current one; I'm sure this will be fun because I'm ready to grow and "develop" &#128517;
+      background in development, operations and analysis. I'm looking to continue to attain new skills and strengthen
+      my current ones; I'm sure this will be fun because I'm ready to grow and "develop" &#128517;
       </p>
     </div>
   </div>
 
+  <script>
+    function myFunction() {
+      var x = document.getElementById("myTopnav");
+      if (x.className === "topnav") {
+        x.className += " responsive";
+      } else {
+        x.className = "topnav";
+      }
+    }
+  </script>
 
 </body>
 
