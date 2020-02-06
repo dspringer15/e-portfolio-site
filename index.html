@@ -1,51 +1,62 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<style>
-body {
-  margin: 0;
-  font-family: Arial, Helvetica, sans-serif;
-}
-
-.topnav {
-  overflow: hidden;
-  background-color: #333;
-}
-
-.topnav a {
-  float: left;
-  color: #f2f2f2;
-  text-align: center;
-  padding: 14px 16px;
-  text-decoration: none;
-  font-size: 17px;
-}
-
-.topnav a:hover {
-  background-color: #ddd;
-  color: black;
-}
-
-.topnav a.active {
-  background-color: #4CAF50;
-  color: white;
-}
-</style>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Desmond Springer's E-Portfolio</title>
+  <link rel="stylesheet" type="text/css" href="css/site_styling.css">
+  <link href="https://fonts.googleapis.com/css?family=Share+Tech+Mono&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
+
 <body>
+  <!-- <div class="menubackground"> -->
+    <div class="topnav" id="myTopnav">
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="resume.html">Resume</a>
+      <a href="contact.html">Contact</a>
+      <a href="https://github.com/dspringer15">GitHub</a>
+      <a href="https://www.linkedin.com/in/desmondspringer1/">LinkedIn</a>
+      <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+        <i class="fa fa-bars"></i>
+      </a>
+    </div>
+  <!-- </div> -->
 
-<div class="topnav">
-  <a class="active" href="#home">Home</a>
-  <a href="#news">News</a>
-  <a href="#contact">Contact</a>
-  <a href="#about">About</a>
-</div>
+  <div class="body_style">
+    <center>
+      <h1>Welcome to my world!</h1>
+      
+      </br>
+  
+      <div id="animated-example" class = "animated bounce">
+        <img style="border: 3px inset #b8a01a" src="images/selfie.jpg" alt="Dez b&w" width="200" height="300">
+      </div>
+    </center>
+  
+    </br>
+    
+    
+    <div class="message_styling">
+      <p>I am glad you've taken the time to check out my evolving E-Portfolio. I'm a growing I.T. professional with a
+      background in development, operations and analysis. I'm looking to continue to attain new skills and strengthen
+      my current ones; I'm sure this will be fun because I'm ready to grow and "develop". &#128517;
+      </p>
+    </div>
+  </div>
 
-<div style="padding-left:16px">
-  <h2>Is this thing on?</h2>
-  <p>Testing to see if I still have it..</p>
-</div>
+  <script>
+    function myFunction() {
+      var x = document.getElementById("myTopnav");
+      if (x.className === "topnav") {
+        x.className += " responsive";
+      } else {
+        x.className = "topnav";
+      }
+    }
+  </script>
 
 </body>
+
 </html>

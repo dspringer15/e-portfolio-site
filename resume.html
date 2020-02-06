@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Desmond's Resume</title>
+    <link rel="stylesheet" type="text/css" href="css/site_styling.css">
+    <link href="https://fonts.googleapis.com/css?family=Share+Tech+Mono&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+
+<body>
+  
+    <div class="topnav" id="myTopnav">
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="resume.html">Resume</a>
+        <a href="contact.html">Contact</a>
+        <a href="https://github.com/dspringer15">GitHub</a>
+        <a href="https://www.linkedin.com/in/desmondspringer1/">LinkedIn</a>
+        <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+            <i class="fa fa-bars"></i>
+        </a>
+    </div>
+
+    <div class="body_style">
+        <h1>What I've Done</h1>
+
+        </br>
+    
+        <h2>Let me share my past and present experiences with you...</h2>
+
+        </br>
+
+        <p>My resume in PDF format can be viewed in the box below by clicking <a href="docs/2020.docx" target="dez_resume">here</a>.</p>
+
+        </br>
+
+        <center>
+            <iframe class="resume_window" name="dez_resume"></iframe>
+        </center>
+    </div>
+</body>
+
+    <script>
+        function myFunction() {
+        var x = document.getElementById("myTopnav");
+        if (x.className === "topnav") {
+            x.className += " responsive";
+        } else {
+            x.className = "topnav";
+        }
+        }
+    </script>
+
+</html>

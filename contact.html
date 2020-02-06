@@ -1,0 +1,136 @@
+<?php 
+if(isset ($_POST['submit'])){
+    $inquiry = $_POST['inquiry'];
+    $email = $_POST['email'];
+    $to = 'dspringer08@yahoo.com';
+    $fullname = $_POST['fullname'];
+    $number = $_POST['number'];
+    $subject = "You have a new email from your E-Portfolio";
+    $message = $_POST['message'];
+    $file = $_POST['attachedFile'];
+    $body = '<html>
+                <body>
+                    <h3>You have a new '.$inquiry.' from '.$fullname.' </h3>
+                    <p>Email: '.$email.'</p>
+                    <p>Name: '.$fullname.'</p>
+                    <p>Number: '.$number.'</p>
+                    <p>Message: '.$message.'</p>
+                    <p>They also sent the attached file: '.$file.'</p>
+                </body>
+            </html>'; 
+
+
+    $headers = "From: " .$name. " <".$email.">\r\n";
+    $headers .= "Reply-To:  ".$email."\r\n";
+    $headers .= "MIME-Version: 1.0\r\n";
+    $headers .= "Content-type: text/html; charset-utf-8";
+    $send = mail($to,$subject,$body,$headers);
+    echo "Mail Sent. Thank you " . $first_name . ", we will contact you shortly.";
+    }
+?>
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" charset="utf-8">
+    <title>Contact Me!</title>
+    <link rel="stylesheet" type="text/css" href="css/site_styling.css">
+    <link href="https://fonts.googleapis.com/css?family=Share+Tech+Mono&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+
+<body>
+    <div class="topnav" id="myTopnav">
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="resume.html">Resume</a>
+        <a href="contact.html">Contact</a>
+        <a href="https://github.com/dspringer15">GitHub</a>
+        <a href="https://www.linkedin.com/in/desmondspringer1/">LinkedIn</a>
+        <a href="javascript:void(0);" class="icon" onclick="windowSize()">
+            <i class="fa fa-bars"></i>
+        </a>
+    </div>
+
+    <div class="body_style">
+        <h1>Let's Keep in Touch</h1>
+
+        </br>
+
+        <p>I would love to hear back from you with any opportunites, feedback or further questions that you may have.
+            Please feel free to complete the form and I will be with you as soon as possible.
+        </p>
+
+        </br>
+
+        <div class="contact_form">
+            <form name="contactForm" action="" onsubmit="return validateForm()" method="post">
+
+                <label for="inquiry_type">Inquiry Type: <span class = "red">*</span></label>
+                <select id="inquiry_type" name="inquiry">
+                    <option style="display:none"></option>
+                    <option value="questions">Questions</option>
+                    <option value="feedback">Feedback</option>
+                    <option value="opportunites">Opportunites</option>
+                </select>
+
+                <label for="email">Email: <span class = "red">*</span></label>
+                <input type="email" id="email" name="email" placeholder="Enter your e-mail..">
+                
+                <label for="fullname">Name: <span class = "red">*</span></label>
+                <input type="text" id="fullname" name="fullname" placeholder="Enter your first and last name..">
+
+                <label for="number">Number:</label>
+                <input type="text" id="number" name="number" placeholder="Enter your area code and number in 9999999999 format..">
+
+                <label for="message">Message: <span class = "red">*</span></label>
+                <textarea id="message" name="message" placeholder="What would you like to say?" style="height:200px"></textarea>
+
+                <label for="fileInput">Add File:</label>
+                <input type="file" name="attachedfile" maxlength=50 allow="text/*"  />
+                    
+                <center>
+                    <p>Fields with a "<span class = "red">*</span>" denotes that they are required fields.</p>
+                    </br><input type="submit" value="Submit" onclick="emailSent()">
+                </center>
+
+            </form>
+        </div>
+    </div>
+
+    <script>
+        function validateForm() {
+            var email = document.forms["contactForm"]["email"].value;
+            var name = document.forms["contactForm"]["fullname"].value;
+            var message = document.forms["contactForm"]["message"].value;
+
+            if (email == "") {
+                alert("You must provide a valid email.");
+                return false;
+            } else if (name == "") {
+                alert("You must enter your name.");
+                return false;
+            } else if (message == "") {
+                alert("You must enter a message to send.");
+                return false;
+            } else {
+                // function emailSent() {
+                    alert("Thanks for your message! Your email has been sent to Desmond.");
+                // }
+            }
+        }
+
+        function windowSize() {
+          var x = document.getElementById("myTopnav");
+          if (x.className === "topnav") {
+            x.className += " responsive";
+          } else {
+            x.className = "topnav";
+          }
+        }
+
+    </script>
+</body>
+
+</html>
