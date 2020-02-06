@@ -1,20 +1,31 @@
 <?php 
-if(isset($_POST['submit'])){
-    $to = "dspringer08@yahoo.com"; // this is your Email address
-    $from = $_POST['email']; // this is the sender's Email address
+if(isset ($_POST['submit'])){
+    $inquiry = $_POST['inquiry'];
+    $email = $_POST['email'];
+    $to = 'dspringer08@yahoo.com';
     $fullname = $_POST['fullname'];
     $number = $_POST['number'];
-    $subject = "You have a(n) " + $_POST['inquiry'] + " from " + $_POST['fullname'];
-    $subject2 = "Copy of your form submission";
-    $message = $fullname " wrote the following:" . "\n\n" . $_POST['message'];
-    $message2 = "Here is a copy of your message.\n\n" . $_POST['message'];
+    $subject = "You have a new email from your E-Portfolio";
+    $message = $_POST['message'];
+    $file = $_POST['attachedFile'];
+    $body = '<html>
+                <body>
+                    <h3>You have a new '.$inquiry.' from '.$fullname.' </h3>
+                    <p>Email: '.$email.'</p>
+                    <p>Name: '.$fullname.'</p>
+                    <p>Number: '.$number.'</p>
+                    <p>Message: '.$message.'</p>
+                    <p>They also sent the attached file: '.$file.'</p>
+                </body>
+            </html>'; 
 
-    $headers = "From:" . $from;
-    $headers2 = "From:" . $to;
-    mail($to,$subject,$message,$headers);
-    mail($from,$subject2,$message2,$headers2); // sends a copy of the message to the sender
+
+    $headers = "From: " .$name. " <".$email.">\r\n";
+    $headers .= "Reply-To:  ".$email."\r\n";
+    $headers .= "MIME-Version: 1.0\r\n";
+    $headers .= "Content-type: text/html; charset-utf-8";
+    $send = mail($to,$subject,$body,$headers);
     echo "Mail Sent. Thank you " . $first_name . ", we will contact you shortly.";
-    // You can also use header('Location: thank_you.php'); to redirect to another page.
     }
 ?>
 
@@ -22,7 +33,7 @@ if(isset($_POST['submit'])){
 <html>
 
 <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1" charset="utf-8">
     <title>Contact Me!</title>
     <link rel="stylesheet" type="text/css" href="css/site_styling.css">
     <link href="https://fonts.googleapis.com/css?family=Share+Tech+Mono&display=swap" rel="stylesheet">
@@ -35,6 +46,7 @@ if(isset($_POST['submit'])){
         <a href="about.html">About</a>
         <a href="resume.html">Resume</a>
         <a href="contact.html">Contact</a>
+        <a href="https://github.com/dspringer15">GitHub</a>
         <a href="https://www.linkedin.com/in/desmondspringer1/">LinkedIn</a>
         <a href="javascript:void(0);" class="icon" onclick="windowSize()">
             <i class="fa fa-bars"></i>
@@ -53,7 +65,7 @@ if(isset($_POST['submit'])){
         </br>
 
         <div class="contact_form">
-            <form name="contactForm" action="php/site_actions.php" onsubmit="return validateForm()" method="post">
+            <form name="contactForm" action="" onsubmit="return validateForm()" method="post">
 
                 <label for="inquiry_type">Inquiry Type: <span class = "red">*</span></label>
                 <select id="inquiry_type" name="inquiry">
